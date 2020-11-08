@@ -1,7 +1,11 @@
+import os
 from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+
+UPLOAD_FOLDER = "D:\\Projects\\tubes-algeo\\api\\uploaded_files"
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def main_page():
@@ -14,4 +18,5 @@ def upload_file():
     if request.method == 'POST':
         file = request.files["file"]
         filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config["UPLOAD_FOLDER"],filename))
         return jsonify(completed= True, name= filename)

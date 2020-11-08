@@ -5,8 +5,11 @@ const Result = () => {
     return (
         <ResultWrapper>
             <div className="result">
-                <div className="number">
-                    <p>1.</p>
+                <div className="content">
+                    <a href=""><h3>Judul Dokumen</h3></a>
+                    <p>Jumlah kata: ....</p>
+                    <p>Tingkat Kemiripan: ....%</p>
+                    <p>Kalimat pertama</p>
                 </div>
                 <div className="content">
                     <a href=""><h3>Judul Dokumen</h3></a>
@@ -17,13 +20,15 @@ const Result = () => {
             </div>
             <style jsx>{`
                 .result {
-                    display: flex;
-                    margin-left: 7%;
+                    margin-left: 6%;
                     text-align: left;
+                    border: solid 1px black;
+                    border-radius: 30px;
                 }
 
                 .content {
-                    margin-left: 15px;
+                    width: 100%;
+                    padding: 1rem 1.5rem;
                 }
 
                 a {

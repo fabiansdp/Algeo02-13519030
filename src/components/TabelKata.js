@@ -33,7 +33,7 @@ const TabelKata = () => {
                 }    
 
                 table {
-                    width: 70%;
+                    width: 50%;
                 }
 
                 table,th,td {

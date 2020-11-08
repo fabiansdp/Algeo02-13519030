@@ -26,10 +26,10 @@ const UploadFile = () => {
 
     return (
         <div id="uploader-container">
-            <p>Daftar Dokumen: </p>
             <div className="file-upload">
-                <input type="file" name="file" onChange={handleChange} />
-                <button type="submit" value="Upload" onClick={handleSubmit}>Submit</button>
+                <label>Daftar Dokumen: </label>
+                <input type="file" name="file" onChange={handleChange} accept=".txt" />
+                <button type="submit" value="upload" onClick={handleSubmit}>Submit</button>
             </div>
             <style jsx>{`
                 #uploader-container {
@@ -38,13 +38,11 @@ const UploadFile = () => {
                     margin-top: 5%;
                 }
 
-                #uploader-container p {
-                    margin: 0;
+                label {
+                    font-size: 1.2rem;
+                    font-weight: 700;
                 }
 
-                .file-upload {
-                    margin-left: 1rem;
-                }
             `}</style>
         </div>
     )
