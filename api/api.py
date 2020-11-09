@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 
@@ -17,6 +18,7 @@ def main_page():
 def upload_file():
     if request.method == 'POST':
         file = request.files["file"]
+        
         filename = secure_filename(file.filename)
         
         if not os.path.exists(UPLOAD_FOLDER):
@@ -25,8 +27,9 @@ def upload_file():
         file.save(os.path.join(app.config["UPLOAD_FOLDER"],filename))
         return jsonify(completed= True, name= filename)
 
+
 @app.route('/query', methods=['POST'])
 def query():
     if request.method == 'POST':
-        query = request.data
+        query = request.form["query"]
         return query

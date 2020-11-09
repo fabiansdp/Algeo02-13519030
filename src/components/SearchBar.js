@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const SearchBar = () => {
     const QUERY_URL = "/query";
-    const [query, setQuery] = useState(null);
+    const [query, setQuery] = useState("");
 
     const handleChange = async(e) => {
         if (e?.target?.value) {
@@ -11,8 +11,8 @@ const SearchBar = () => {
             try {
                 const data = new FormData();
                 data.append('query', query);
-                const response = await axios.post(QUERY_URL, query);
-                console.log(response)
+                const response = await axios.post(QUERY_URL, data);
+                console.log(response.data)
             } catch (error) {
                 console.log(error)
             }
