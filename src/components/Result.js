@@ -20,9 +20,9 @@ const Result = () => {
             </div>
             <style jsx>{`
                 .result {
+                    background: #FFF;
                     margin-left: 6%;
                     text-align: left;
-                    border: solid 1px black;
                     border-radius: 30px;
                 }
 

@@ -24,3 +24,9 @@ def upload_file():
 
         file.save(os.path.join(app.config["UPLOAD_FOLDER"],filename))
         return jsonify(completed= True, name= filename)
+
+@app.route('/query', methods=['POST'])
+def query():
+    if request.method == 'POST':
+        query = request.data
+        return query

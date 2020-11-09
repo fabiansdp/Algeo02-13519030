@@ -1,13 +1,29 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import React, {useState} from 'react';
+import axios from 'axios';
 
 const SearchBar = () => {
+    const QUERY_URL = "/query";
+    const [query, setQuery] = useState(null);
+
+    const handleChange = async(e) => {
+        if (e?.target?.value) {
+            setQuery(e.target.value);
+            try {
+                const data = new FormData();
+                data.append('query', query);
+                const response = await axios.post(QUERY_URL, query);
+                console.log(response)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    };
+
     return (
         <div id="search-container">
             <div class="search">
-                <input type="text" className="searchTerm" placeholder="Pencarian..." />
-                <button type="submit" className="searchButton"><FontAwesomeIcon icon={faSearch}/></button>
+                <input type="text" name="query" className="searchTerm" placeholder="Pencarian..." onChange={handleChange} />
+                
             </div>
             <style jsx>{`
                 #search-container {
@@ -17,27 +33,16 @@ const SearchBar = () => {
                 }
 
                 .search {
-                    width: 50%;
-                    display: flex;
+                    width: 55%;
                 }
 
                 .searchTerm {
                     width: 100%;
                     border: 1px solid #a6a6a6;
                     border-right: none;
-                    padding: 10px;
-                    border-radius: 5px 0 0 5px;
+                    padding: 25px;
+                    border-radius: 20px;
                     outline: none;
-                }
-
-                .searchButton {
-                    width: 10%;
-                    border: 1px solid #a6a6a6;
-                    background: #FFFF;
-                    color: #000000;
-                    border-radius: 0 5px 5px 0;
-                    cursor: pointer;
-                    font-size: 20px;
                 }
             `}</style>
         </div>
