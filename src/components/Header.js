@@ -10,7 +10,7 @@ const Header = () => (
             h1 {
                 font-family: 'Viga', sans-serif;
                 font-size: 3rem;
-                color: #FFF;
+                color: #ffea00;
             }
         `}</style>
     </div>

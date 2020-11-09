@@ -14,6 +14,7 @@ const ResultWrapper = ({children}) => (
             h2 {
                 font-family: 'Viga', sans-serif;
                 font-size: 2rem;
+                color: #ffea00;
             }    
         `}</style>
     </div>

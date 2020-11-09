@@ -30,14 +30,16 @@ const TabelKata = () => {
                     display: flex;
                     justify-content: center;
                     margin-bottom: 100px;
+                    border-radius: 20px;
                 }    
 
                 table {
                     width: 50%;
-                }
-
-                table,th,td {
-                    border: 1px solid black;
+                    background: #FFF;
+                    border-radius: 10px;
+                    text-align: center;
+                    -webkit-box-shadow: 5px 5px 14px 1px rgba(0,0,0,0.3); 
+                    box-shadow: 5px 5px 14px 1px rgba(0,0,0,0.3);
                 }
             `}</style>
         </div>

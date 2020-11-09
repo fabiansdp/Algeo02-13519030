@@ -6,13 +6,13 @@ const Result = () => {
         <ResultWrapper>
             <div className="result">
                 <div className="content">
-                    <a href=""><h3>Judul Dokumen</h3></a>
+                    <a href="#"><h3>Judul Dokumen</h3></a>
                     <p>Jumlah kata: ....</p>
                     <p>Tingkat Kemiripan: ....%</p>
                     <p>Kalimat pertama</p>
                 </div>
                 <div className="content">
-                    <a href=""><h3>Judul Dokumen</h3></a>
+                    <a href="#"><h3>Judul Dokumen</h3></a>
                     <p>Jumlah kata: ....</p>
                     <p>Tingkat Kemiripan: ....%</p>
                     <p>Kalimat pertama</p>
@@ -24,6 +24,8 @@ const Result = () => {
                     margin-left: 6%;
                     text-align: left;
                     border-radius: 30px;
+                    -webkit-box-shadow: 5px 5px 14px 1px rgba(0,0,0,0.3); 
+                    box-shadow: 5px 5px 14px 1px rgba(0,0,0,0.3);
                 }
 
                 .content {
@@ -38,6 +40,10 @@ const Result = () => {
                 h3, p {
                     font-family: 'Roboto', serif;
                     font-size: 1.2rem;
+                }
+
+                h3 {
+                    color: #023e8a;
                 }
             `}</style>
         </ResultWrapper>
