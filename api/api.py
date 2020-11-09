@@ -18,5 +18,9 @@ def upload_file():
     if request.method == 'POST':
         file = request.files["file"]
         filename = secure_filename(file.filename)
+        
+        if not os.path.exists(UPLOAD_FOLDER):
+            os.makedirs(UPLOAD_FOLDER)
+
         file.save(os.path.join(app.config["UPLOAD_FOLDER"],filename))
         return jsonify(completed= True, name= filename)
