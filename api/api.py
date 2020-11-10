@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = "D:\\Projects\\tubes-algeo\\api\\uploaded_files"
+UPLOAD_FOLDER = "uploaded_files"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
