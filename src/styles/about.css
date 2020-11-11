@@ -1,0 +1,53 @@
+#about-container {
+  padding: 3rem 2rem;
+}
+
+.about-box {
+  display: flex;
+  flex-direction: column;
+  background: #FFF;
+  padding: 3% 5%;
+  border-radius: 25px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #023e8a;
+}
+
+.section h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.section p {
+  text-align: justify;
+  font-weight: 700;
+}
+
+.list-penggunaan {
+  flex-direction: column;
+  padding: 0;
+}
+
+.list-penggunaan li {
+  margin: 0;
+  color: #000000;
+  font-size: 1.2rem;
+}
+
+.anggota {
+  flex-direction: column;
+  padding: 0;
+}
+
+.anggota li {
+  margin: 0;
+  color: #000000;
+  font-size: 1.2rem;
+}

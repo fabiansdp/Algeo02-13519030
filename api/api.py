@@ -43,5 +43,5 @@ def fetchdoc(filename):
     f = open(os.path.join(app.config["UPLOAD_FOLDER"],filename), "r")
     content = f.readlines()
     f.close()
-    name = (os.path.splitext(filename)[0]).capitalize()
+    name = (os.path.splitext(filename)[0]).title().replace("_"," ") #Hilangkan extension, kapitalisasi huruf pertama, dan mengganti _ menjadi spasi
     return jsonify(name = name, content = content)

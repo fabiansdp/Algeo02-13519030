@@ -3,7 +3,7 @@ import "../styles/document.css"
 import axios from 'axios';
 
 const Document = ({ match }) => {
-  const[item, setItem] = useState([]);
+  const[item, setItem] = useState({});
   const[content, setContent] = useState([]);
   
   useEffect(() => {
@@ -13,7 +13,6 @@ const Document = ({ match }) => {
   const fetchItem = async() => {
     try {
       const item = await axios.get(`/doc/${match.params.id}`);
-      console.log(item.data)
       setItem(item.data);
       setContent(item.data.content);
     } catch (error) {

@@ -12,7 +12,7 @@ const Result = () => {
       first_sentence: "Fabian anak terpintar satu semesta raya"
     },
     {
-      judul: "index.html",
+      judul: "NASA_Webinar.txt",
       jumlah: 1000,
       kemiripan: 90,
       first_sentence: "Fabian anak terpintar satu semesta raya"
