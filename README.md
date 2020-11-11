@@ -1,49 +1,53 @@
 # Tugas Besar 2 Aljabar Linier dan Geometri
-> Here goes your awesome project description!
+> Aplikasi Dot Product pada Sistem Temu-Balik Informasi
 
-## Table of contents
-* [General info](#general-info)
-* [Screenshots](#screenshots)
-* [Technologies](#technologies)
+## Daftar Isi
+* [Penjelasan](#penjelasan)
+* [Screenshot](#screenshot)
+* [Teknologi](#teknologi)
 * [Setup](#setup)
-* [Features](#features)
-* [Status](#status)
-* [Inspiration](#inspiration)
-* [Contact](#contact)
+* [Menjalankan Program](#menjalankan-program)
+* [Kontributor](#kontributor)
 
-## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+## Penjelasan
+### Pendahuluan
+Sebagaimana yang telah diajarkan di dalam kuliah pada materi vector di ruang Euclidean, temu-balik informasi (information retrieval) merupakan proses menemukan kembali (retrieval) informasi yang relevan terhadap kebutuhan pengguna dari suatu kumpulan informasi secara otomatis. Biasanya, sistem temu balik informasi ini digunakan untuk mencari informasi pada informasi yang tidak terstruktur, seperti laman web atau dokumen.
+### Teknik Perhitungan
+Menyusul Bro
 
-## Screenshots
+## Screenshot
 ![Example screenshot]
 
-## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+## Teknologi
+* Frontend : ReactJs
+* Backend : Flask
 
 ## Setup
-Describe how to install / setup your local environement / add link to demo version.
-
-## Code Examples
-Show examples of usage:
-`put-your-code-here`
-
-## Features
-List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
-
-To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
-
-## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
-
-## Inspiration
-Add here credits. Project inspired by..., based on...
-
-## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Untuk menggunakan proyek ini, diperlukan menginstall NPM untuk frontend dan virtual environment untuk backend.
+### Instalasi NPM
+```bash
+npm install
+```
+### Instalasi
+```bash
+cd api
+py -3 -m venv venv
+pip install flask
+```
+## Menjalankan Program
+### Frontend
+Dari main directory lakukan ini:
+```bash
+npm start
+```
+### Backend
+Dari main directory lakukan ini:
+```bash
+cd api
+source venv/Scripts/activate
+venv/Scripts/flask run
+```
+## Kontributor
+1. Ferdy Irawan F.      (13519030)
+2. Fakhri Nail W.       (13519035)
+3. Fabian Savero D.P.   (13519140)
