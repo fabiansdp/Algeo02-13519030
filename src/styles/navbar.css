@@ -1,0 +1,48 @@
+header {
+  padding: 0.05;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 20;
+  background: #FF5666;
+}
+
+header.shadow {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+nav {
+  height: 10vh;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Viga', sans-serif;
+  font-size: 3rem;
+  color: #ffea00;
+  margin: 0 3rem;
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  list-style: none;
+  text-decoration: none;
+  margin: 0 1.5rem;
+  font-family: "Viga", sans-serif;
+  font-size: 1.5rem;
+  color: #ffea00;
+}
+
+.nav-links {
+  margin-left: auto;
+}
+
+.logo {
+  text-align: center;
+}
