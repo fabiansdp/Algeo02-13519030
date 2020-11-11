@@ -23,7 +23,7 @@ Menyusul Bro
 * Backend : Flask
 
 ## Setup
-Untuk menggunakan proyek ini, diperlukan menginstall NPM untuk frontend dan virtual environment untuk backend.
+Untuk menggunakan proyek ini, diperlukan menginstall NPM untuk frontend dan virtual environment untuk install berbagai library yang digunakan di proyek ini.
 ### Instalasi NPM
 ```bash
 npm install
@@ -32,7 +32,7 @@ npm install
 ```bash
 cd api
 py -3 -m venv venv
-pip install flask
+pip install flask python-dotenv nltk Sastrawi
 ```
 ## Menjalankan Program
 ### Frontend

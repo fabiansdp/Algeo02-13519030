@@ -22,7 +22,7 @@ const NavBar = () => {
     <header className={onTop ? "" : "shadow"} >
       <nav>
         <div className="logo">
-          <h1>Auto A</h1>
+          <Link to="/"><h1>Auto A</h1></Link>
         </div>
         <div id="spacer" />
         <ul className="nav-links">
