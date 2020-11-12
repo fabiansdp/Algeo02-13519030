@@ -4,7 +4,9 @@ import os
 
 from pathlib import Path
 
+'''class buat nyimpen dokumen yang diupload'''
 class Document(object):
+    '''konstruktor class'''
     def __init__(self, judul, kata, jml_kata, first_line):
         self.judul = judul
         self.jml_kata = jml_kata
@@ -14,6 +16,7 @@ class Document(object):
         self.similarity = 0
         self.dict = {}
 
+    '''fungsi konstruktor'''
     def createDict(self):
         for kata in database:
             self.dict[kata] = self.kata.count(kata)
@@ -28,6 +31,7 @@ class Document(object):
         lengthopr = np.linalg.norm(self.vect) * np.linalg.norm(vectQuery)
         self.similarity = dotopr / lengthopr
 
+    '''getter variable'''
     def getDict(self):
         return self.dict
 
@@ -49,25 +53,30 @@ class Document(object):
     def getSimilarity(self):
         return self.similarity
 
+'''fungsi buat nyimpen setiap kata ke database'''
 def addToDatabase(input, database):
     for kata in input:
         if kata not in database:
             database.append(kata)
 
+'''buat dictionary dari query'''
 def createDictQuery(query, dictQuery):
     for kata in database:
             dictQuery[kata] = query.count(kata)
     pass
 
+'''buat vector dari dictionary query'''
 def createVecQuery(query, vectQuery, database):
     for jml in dictQuery.values():
         vectQuery.append(jml)
     vectQuery = np.array(vectQuery)
     pass
 
+'''sort nilai similarity tiap dokumen'''
 def sortSimilarity(listobjects):
     listobjects.sort(key = lambda x: x.similarity, reverse = True)
 
+'''hitung jumlah kata dari dokumen asli'''
 def calculateJmlKata(filename):
     jmlkata = 0
     with open(os.path.join(os.getcwd(), filename), 'r') as f:
@@ -80,6 +89,7 @@ def calculateJmlKata(filename):
 
     return jmlkata
 
+'''ngambil kalimat pertama dokumen'''
 def extractFirstLine(filename):
     firstline = []
     with open(os.path.join(os.getcwd(), filename), 'r') as f:
@@ -88,7 +98,12 @@ def extractFirstLine(filename):
         f.close()
     return firstline
 
-database = []
-vectQuery = []
+'''kamus data lengkap'''
+database = [] 
+
+'''properti dari query'''
+vectQuery = [] 
 dictQuery = {}
+
+'''list buat nyimpen Document'''
 listOfDocuments = []

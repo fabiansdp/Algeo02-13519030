@@ -65,7 +65,10 @@ def query():
             listOfDocuments[doc].createVector()
             listOfDocuments[doc].createSimilarity()
 
+        '''sort dokumen berdasarkan similarity'''
         sortSimilarity(listOfDocuments)
+
+        '''testing'''
         print(database)
         for doc in range(len(listOfDocuments)):
             print(listOfDocuments[doc].getJudul())
