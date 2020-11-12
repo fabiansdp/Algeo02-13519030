@@ -47,9 +47,9 @@ def query():
         for filename in glob.glob(os.path.join(path, '*.txt')): #iterasi tiap file yang ada dengan extension .txt
             namafileasli = Path(filename).stem #ambil nama file untuk jadi nama variable Document()
             outputstemming = stemming_file(filename) #stemming file
-            kalimat1 = extractFirstLine(filename)
+            kalimat1 = extractFirstLine(filename) #ambil kalimat pertama
             addToDatabase(outputstemming, database) #tambah kata yang ada dalam file ke database
-            jmlkata = calculateJmlKata(filename)
+            jmlkata = calculateJmlKata(filename) #hitung jumlah kata dokumen asli
             namafileasli = Document(namafileasli, outputstemming, jmlkata, kalimat1) #buat Document baru
             listOfDocuments.append(namafileasli) #buat list of Documents
 
