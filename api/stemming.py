@@ -11,20 +11,10 @@ def hanya_huruf( input ):
    else:
       return True
 
-def stemming_file():
-    global list_output
+def stemming_file(filename):
+    hasil_stemming = []
 
-    path = Path(__file__).parent / './uploaded_files/'
-    list_dir = [name for name in glob2.glob(os.path.join(path, '*.txt'))]
-
-    list_input = []
-    for i in range (len(list_dir)):
-        list_input.append(os.path.basename(list_dir[i]))
-
-    list_output = [[0 for x in range(0)] for x in range(len(list_input))]
-
-    for x in range(len(list_dir)):
-        f = open(os.path.join(os.getcwd(), list_dir[x]),"r")
+    with open(os.path.join(os.getcwd(), filename), 'r') as f:
         fcontent = f.read()
         lines = fcontent.split()
         f.close()
@@ -37,17 +27,18 @@ def stemming_file():
                 word = word.strip(string.punctuation).lower()
                 word = stemmer.stem(word)
                 if (word not in nltk.corpus.stopwords.words('indonesian')):
-                    list_output[x].append(word)
+                    hasil_stemming.append(word)
             else:
                 pass
+    
+    return hasil_stemming
 
-def stemming_query():
+def stemming_query(query):
     global hasil_query
 
     factory = StemmerFactory()
     stemmer = factory.create_stemmer()
 
-    query = '...'
     lines = query.split()
     hasil_query = []
     for word in lines:

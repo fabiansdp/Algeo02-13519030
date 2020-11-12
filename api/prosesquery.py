@@ -5,10 +5,11 @@ import os
 from pathlib import Path
 
 class Document(object):
-    def __init__(self, judul, kata):
+    def __init__(self, judul, kata, jml_kata, first_line):
         self.judul = judul
-        self.jml_kata = 0
+        self.jml_kata = jml_kata
         self.kata = kata
+        self.firstline = first_line
         self.vect = []
         self.similarity = 0
         self.dict = {}
@@ -21,10 +22,6 @@ class Document(object):
         for jml in self.dict.values():
             self.vect.append(jml)
         self.vect = np.array(self.vect)
-
-    def createJmlKata(self):
-        for jml in self.dict.values():
-            self.jml_kata += jml 
 
     def createSimilarity(self):
         dotopr = np.dot(self.vect, vectQuery)
@@ -40,6 +37,9 @@ class Document(object):
     def getKata(self):
         return self.kata
 
+    def getFirstLine(self):
+        return self.firstline
+
     def getVector(self):
         return self.vect
     
@@ -54,7 +54,7 @@ def addToDatabase(input, database):
         if kata not in database:
             database.append(kata)
 
-def createDictQuery(dictQuery):
+def createDictQuery(query, dictQuery):
     for kata in database:
             dictQuery[kata] = query.count(kata)
     pass
@@ -68,51 +68,27 @@ def createVecQuery(query, vectQuery, database):
 def sortSimilarity(listobjects):
     listobjects.sort(key = lambda x: x.similarity, reverse = True)
 
-def calculateJmlKata(input):
+def calculateJmlKata(filename):
     jmlkata = 0
-    input = input.split()
+    with open(os.path.join(os.getcwd(), filename), 'r') as f:
+        input = f.read()
+        lines = input.split()
+        f.close()
 
-    for kata in input:
-        jmlkata += 1
-    
+        for word in lines:
+            jmlkata += 1
+
     return jmlkata
 
+def extractFirstLine(filename):
+    firstline = []
+    with open(os.path.join(os.getcwd(), filename), 'r') as f:
+        input = f.readline()
+        firstline = input
+        f.close()
+    return firstline
+
 database = []
-query = ["ini", "dia", "uhuy"]
 vectQuery = []
 dictQuery = {}
-
-testfile = ["ini", "itu", "dia", "ini"]
-testfile2 = ["test", "uhuy", "dia", "hehe"]
-
-addToDatabase(testfile,database)
-addToDatabase(testfile2,database)
-addToDatabase(query,database)
-
-listobjects = []
-
-file1 = Document("Artikel Sampah", testfile)
-listobjects.append(file1)
-file2 = Document("Artikel Bagus", testfile2)
-listobjects.append(file2)
-
-file1.createDict()
-file2.createDict()
-createDictQuery(dictQuery)
-
-createVecQuery(query, vectQuery, dictQuery)
-file1.createVector()
-file2.createVector()
-
-file1.createSimilarity()
-file2.createSimilarity()
-
-sim1 = file1.getSimilarity()
-sim2 = file2.getSimilarity()
-
-print(sim1, sim2)
-for obj in listobjects:
-    print(obj.similarity)
-sortSimilarity(listobjects)
-for obj in listobjects:
-    print(obj.similarity)
+listOfDocuments = []
