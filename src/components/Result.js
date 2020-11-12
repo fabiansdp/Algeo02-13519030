@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Result = () => {
   const items = [
     {
-      judul: "daftar_email_hr_internship.txt",
+      judul: "index.html",
       jumlah: 1000,
       kemiripan: 90,
       first_sentence: "Fabian anak terpintar satu semesta raya"

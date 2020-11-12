@@ -1,4 +1,5 @@
 import os
+from parsefile import parsedoc
 from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 
@@ -40,8 +41,7 @@ def query():
 # Akses Konten Dokumen yang dipilih
 @app.route('/doc/<filename>')
 def fetchdoc(filename):
-    f = open(os.path.join(app.config["UPLOAD_FOLDER"],filename), "r")
-    content = f.readlines()
-    f.close()
+    content = parsedoc(filename)
     name = (os.path.splitext(filename)[0]).title().replace("_"," ") #Hilangkan extension, kapitalisasi huruf pertama, dan mengganti _ menjadi spasi
+    
     return jsonify(name = name, content = content)
