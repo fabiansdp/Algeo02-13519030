@@ -77,6 +77,10 @@ def query():
             print(listOfDocuments[doc].getFirstLine())
         pass
 
+        for doc in range(len(listOfDocuments)):
+            del(listOfDocuments[doc])
+            pass
+
 
 # Akses Konten Dokumen yang dipilih
 @app.route('/doc/<filename>')
