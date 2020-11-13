@@ -1,5 +1,5 @@
 import numpy as np
-import math
+import nltk
 import os
 
 '''class buat nyimpen dokumen yang diupload'''
@@ -30,17 +30,14 @@ class Document(object):
         self.initVector = True
 
     def createSimilarity(self, vectQuery):
-        
+        '''
         dotopr = np.dot(self.vect, vectQuery)
         lengthopr = np.linalg.norm(self.vect) * np.linalg.norm(vectQuery)
         self.similarity = dotopr / lengthopr
-        
-        # dotopr = dotProduct(self.vect, vectQuery)
-        # lengthopr = lengthVector(self.vect) * lengthVector(vectQuery)
-        # if lengthopr == 0:
-        #     return 0.0
-        # else:
-        #     self.similarity = dotopr / lengthopr
+        '''
+        dotopr = dotProduct(self.vect, vectQuery)
+        lengthopr = lengthVector(self.vect) * lengthVector(vectQuery)
+        self.similarity = dotopr / lengthopr
         
 
     '''getter variable'''
@@ -70,18 +67,15 @@ class Document(object):
 
 '''fungsi menghitung dot product'''
 def dotProduct(vector1, vector2):
-    dot = 0
-    for elmt in range(len(vector1)):
-        dot += vector1[elmt]*vector2[elmt]
-    
-    return dot
+    return sum(x*y for x,y in zip(vector1,vector2))
 
 '''fungsi menghitung panjang vektor'''
 def lengthVector(vector):
     length = 0
-    for elmt in vector:
-        length += math.pow(vector[elmt],2)
-    length = math.sqrt(length)
+    for elmt in range(len(vector)):
+        length += vector[elmt]**2
+
+    length = length**0.5
 
     return length
 
@@ -134,7 +128,8 @@ def extractFirstLine(filename):
     firstline = []
     with open(os.path.join(os.getcwd(), filename), 'r') as f:
         input = f.readline()
-        firstline = input.split('.')[0] #ambil kalimat sebelum tanda .
+        detector = nltk.data.load('tokenizers/punkt/english.pickle')
+        firstline = detector.tokenize(input.strip())[0]
         f.close()
     return firstline
 
