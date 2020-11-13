@@ -1,5 +1,6 @@
-import os, nltk, os.path, re, string, sys, getopt, Sastrawi, glob2
+import os, glob
 
+from pathlib import Path
 from collections import Counter
 from parsefile import parsedoc
 from flask import Flask, request, jsonify
@@ -80,11 +81,10 @@ def query():
             print(listOfDocuments[doc].getJudul())
             print(listOfDocuments[doc].getJmlKata())
             print(listOfDocuments[doc].getSimilarity())
-            #print(listOfDocuments[doc].getFirstLine())
         pass
 
         listofDict = []
-        for doc in range(len(listOfDocuments)):
+        for doc in range(len(listOfDocuments)): #Membuat list of objects
             listofDict.append(
                 {
                     'judul': listOfDocuments[doc].getJudul(),
@@ -95,11 +95,19 @@ def query():
                 }
             )
         
+        hasil_query = Counter(hasil_query) #Hitung jumlah tiap kata query yang muncul
+        listofQuery = []
+        for key, value in hasil_query.items(): #Membuat list of objects
+            listofQuery.append({
+                'kata' : key,
+                'jumlah' : value
+            })
+
         del iniVectQuery
         del iniDictQuery
         del listOfDocuments
         
-        return jsonify(query=Counter(hasil_query), hasil=listofDict)
+        return jsonify(query=listofQuery, hasil=listofDict)
 
 
 # Akses Konten Dokumen yang dipilih

@@ -19,7 +19,6 @@ const SearchBar = ({ setHasilQuery, setListDokumen, setIsSearch }) => {
             const data = new FormData();
             data.append('query', query);
             const response = await axios.post(QUERY_URL, data);
-            console.log(response.data)
             setHasilQuery(response.data.query)
             setListDokumen(response.data.hasil)
             setIsSearch(true)

@@ -1,8 +1,6 @@
-import os, nltk, os.path, re, string, sys, getopt, Sastrawi, glob2
+import os, nltk, re, string
 
-from nltk.stem.porter import PorterStemmer
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-from pathlib import Path
 
 def hanya_huruf( input ):
    r = re.match('^[a-zA-Z]+$', input)

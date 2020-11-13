@@ -14,7 +14,7 @@ const Home = () => {
       <UploadFile/>
       <SearchBar setHasilQuery={setHasilQuery} setListDokumen={setListDokumen} setIsSearch={setIsSearch} />
       <Result listDokumen={listDokumen} isSearch={isSearch} />
-      <TabelKata hasilQuery={hasilQuery} />
+      <TabelKata hasilQuery={hasilQuery} isSearch={isSearch} />
     </div>
   )
 }

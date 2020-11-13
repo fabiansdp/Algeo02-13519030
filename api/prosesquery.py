@@ -1,8 +1,5 @@
 import numpy as np
-import glob
 import os
-
-from pathlib import Path
 
 '''class buat nyimpen dokumen yang diupload'''
 class Document(object):
