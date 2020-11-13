@@ -71,7 +71,7 @@ class Document(object):
 '''fungsi menghitung dot product'''
 def dotProduct(vector1, vector2):
     dot = 0
-    for elmt in vector1:
+    for elmt in range(len(vector1)):
         dot += vector1[elmt]*vector2[elmt]
     
     return dot
