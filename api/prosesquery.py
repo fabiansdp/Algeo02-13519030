@@ -1,4 +1,5 @@
 import numpy as np
+import math
 import os
 
 '''class buat nyimpen dokumen yang diupload'''
@@ -25,13 +26,22 @@ class Document(object):
     def createVector(self):
         for jml in self.dict.values():
             self.vect.append(jml)
-        self.vect = np.array(self.vect)
+        #self.vect = np.array(self.vect)
         self.initVector = True
 
     def createSimilarity(self, vectQuery):
+        '''
         dotopr = np.dot(self.vect, vectQuery)
         lengthopr = np.linalg.norm(self.vect) * np.linalg.norm(vectQuery)
         self.similarity = dotopr / lengthopr
+        ''' 
+        dotopr = dotProduct(self.vect, vectQuery)
+        lengthopr = lengthVector(self.vect) * lengthVector(vectQuery)
+        if lengthopr == 0:
+            return 0.0
+        else:
+            self.similarity = dotopr / lengthopr
+        
 
     '''getter variable'''
     def getDict(self):
@@ -57,6 +67,23 @@ class Document(object):
 
     def getSimilarity(self):
         return self.similarity
+
+'''fungsi menghitung dot product'''
+def dotProduct(vector1, vector2):
+    dot = 0
+    for elmt in range(len(vector1)):
+        dot += vector1[elmt]*vector2[elmt]
+    
+    return dot
+
+'''fungsi menghitung panjang vektor'''
+def lengthVector(vector):
+    length = 0
+    for elmt in vector:
+        length += math.pow(vector[elmt],2)
+    length = math.sqrt(length)
+
+    return length
 
 '''fungsi buat nyimpen setiap kata ke database'''
 def addToDatabase(input, database):
@@ -107,17 +134,12 @@ def extractFirstLine(filename):
     firstline = []
     with open(os.path.join(os.getcwd(), filename), 'r') as f:
         input = f.readline()
-        firstline = input
+        firstline = input.split('.')[0] #ambil kalimat sebelum tanda .
         f.close()
     return firstline
 
 '''kamus data lengkap'''
 database = [] 
-
-'''properti dari query
-vectQuery = [] 
-dictQuery = {}
-'''
 
 '''list buat nyimpen Document'''
 listOfDocuments = []
