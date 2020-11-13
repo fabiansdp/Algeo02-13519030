@@ -34,10 +34,14 @@ class Document(object):
         dotopr = np.dot(self.vect, vectQuery)
         lengthopr = np.linalg.norm(self.vect) * np.linalg.norm(vectQuery)
         self.similarity = dotopr / lengthopr
-        '''
+        ''' 
         dotopr = dotProduct(self.vect, vectQuery)
         lengthopr = lengthVector(self.vect) * lengthVector(vectQuery)
-        self.similarity = dotopr / lengthopr
+        if lengthopr == 0:
+            return 0.0
+        else:
+            self.similarity = dotopr / lengthopr
+        
 
     '''getter variable'''
     def getDict(self):
@@ -76,7 +80,7 @@ def dotProduct(vector1, vector2):
 def lengthVector(vector):
     length = 0
     for elmt in vector:
-        length += math.pow(vector,2)
+        length += math.pow(vector[elmt],2)
     length = math.sqrt(length)
 
     return length
