@@ -20,6 +20,23 @@ const Document = ({ match }) => {
     }
   }
   
+  const handleDownload = async() => {
+    try {
+      return axios.get(`/download/${match.params.id}`, {
+        responseType: 'blob',
+      })
+      .then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a')
+        link.href = url
+        link.setAttribute('download', `${match.params.id}`)
+        document.body.appendChild(link)
+        link.click()
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div id="document-container">
@@ -31,6 +48,9 @@ const Document = ({ match }) => {
           {content.map((line,index) => (
             <p key={index}>{line}</p>
           ))}
+        </div>
+        <div className="download">
+          <button className="download-btn" onClick={handleDownload} >Download File</button>
         </div>
       </div>
     </div>

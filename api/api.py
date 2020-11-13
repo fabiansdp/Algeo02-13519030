@@ -2,6 +2,8 @@ import os, glob
 
 from pathlib import Path
 from collections import Counter
+
+from flask.helpers import send_from_directory
 from parsefile import parsedoc
 from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
@@ -117,5 +119,9 @@ def fetchdoc(filename):
     name = (os.path.splitext(filename)[0]).title().replace("_"," ") #Hilangkan extension, kapitalisasi huruf pertama, dan mengganti _ menjadi spasi
     
     return jsonify(name = name, content = content)
+
+@app.route('/download/<filename>')
+def getfile(filename):
+    return send_from_directory(app.config["UPLOAD_FOLDER"],filename,as_attachment=True)
 
 

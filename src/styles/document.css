@@ -19,3 +19,22 @@
 .content {
   text-align: justify;
 }
+
+.download {
+  display: flex;
+  justify-content: center;
+}
+
+.download-btn {
+  width: 40%;
+  min-width: 200px;
+  padding: 1rem;
+  color: #FFF;
+  background: #1A8FE3;
+  margin-top: 10px;
+  cursor: pointer;   
+  border: 0;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  outline: 0;
+}
