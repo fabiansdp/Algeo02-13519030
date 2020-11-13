@@ -120,6 +120,7 @@ def fetchdoc(filename):
     
     return jsonify(name = name, content = content)
 
+# Download dokumen
 @app.route('/download/<filename>')
 def getfile(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"],filename,as_attachment=True)

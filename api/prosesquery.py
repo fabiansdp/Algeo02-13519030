@@ -30,17 +30,17 @@ class Document(object):
         self.initVector = True
 
     def createSimilarity(self, vectQuery):
-        '''
+        
         dotopr = np.dot(self.vect, vectQuery)
         lengthopr = np.linalg.norm(self.vect) * np.linalg.norm(vectQuery)
         self.similarity = dotopr / lengthopr
-        ''' 
-        dotopr = dotProduct(self.vect, vectQuery)
-        lengthopr = lengthVector(self.vect) * lengthVector(vectQuery)
-        if lengthopr == 0:
-            return 0.0
-        else:
-            self.similarity = dotopr / lengthopr
+        
+        # dotopr = dotProduct(self.vect, vectQuery)
+        # lengthopr = lengthVector(self.vect) * lengthVector(vectQuery)
+        # if lengthopr == 0:
+        #     return 0.0
+        # else:
+        #     self.similarity = dotopr / lengthopr
         
 
     '''getter variable'''

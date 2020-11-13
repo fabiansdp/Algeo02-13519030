@@ -22,6 +22,15 @@ Menyusul Bro
 * Frontend : ReactJs
 * Backend : Flask
 
+Library yang digunakan:
+* nltk
+* Sastrawi
+* glob
+* pathlib
+* collections
+* numpy
+* math
+
 ## Setup
 Untuk menggunakan proyek ini, diperlukan menginstall NPM untuk frontend dan virtual environment untuk install berbagai library yang digunakan di proyek ini.
 ### Instalasi NPM
@@ -32,8 +41,14 @@ npm install
 ```bash
 cd api
 py -3 -m venv venv
-pip install flask python-dotenv nltk Sastrawi
+source venv/Scripts/activate
+pip install flask python-dotenv
 ```
+### Library Install
+```bash
+pip install nltk Sastrawi glob pathlib collections numpy math
+```
+
 ## Menjalankan Program
 ### Frontend
 Dari main directory lakukan ini:
@@ -45,7 +60,7 @@ Dari main directory lakukan ini:
 ```bash
 cd api
 source venv/Scripts/activate
-venv/Scripts/flask run
+flask run
 ```
 ## Kontributor
 1. Ferdy Irawan F.      (13519030)
