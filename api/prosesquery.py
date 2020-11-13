@@ -7,11 +7,14 @@ from pathlib import Path
 '''class buat nyimpen dokumen yang diupload'''
 class Document(object):
     '''konstruktor class'''
-    def __init__(self, judul, kata, jml_kata, first_line):
+    def __init__(self, judul, url, kata, jml_kata, first_line):
         self.judul = judul
+        self.url = url
         self.jml_kata = jml_kata
         self.kata = kata
         self.firstline = first_line
+        self.initVector = False
+        self.initDict = False
         self.vect = []
         self.similarity = 0
         self.dict = {}
@@ -20,13 +23,15 @@ class Document(object):
     def createDict(self):
         for kata in database:
             self.dict[kata] = self.kata.count(kata)
-    
+            pass
+        
     def createVector(self):
         for jml in self.dict.values():
             self.vect.append(jml)
         self.vect = np.array(self.vect)
+        self.initVector = True
 
-    def createSimilarity(self):
+    def createSimilarity(self, vectQuery):
         dotopr = np.dot(self.vect, vectQuery)
         lengthopr = np.linalg.norm(self.vect) * np.linalg.norm(vectQuery)
         self.similarity = dotopr / lengthopr
@@ -34,6 +39,9 @@ class Document(object):
     '''getter variable'''
     def getDict(self):
         return self.dict
+
+    def getURL(self):
+        return self.url
 
     def getJudul(self):
         return self.judul
@@ -60,17 +68,25 @@ def addToDatabase(input, database):
             database.append(kata)
 
 '''buat dictionary dari query'''
-def createDictQuery(query, dictQuery):
+def createDictQuery(query):
+    dictQuery = {}
     for kata in database:
             dictQuery[kata] = query.count(kata)
-    pass
+    
+    return dictQuery
 
 '''buat vector dari dictionary query'''
-def createVecQuery(query, vectQuery, database):
+def createVecQuery(query, dictQuery, database):
+    vectQuery = []
     for jml in dictQuery.values():
         vectQuery.append(jml)
     vectQuery = np.array(vectQuery)
-    pass
+    
+    return vectQuery
+
+def resetQuery():
+    vectQuery = []
+    dictQuery = {}
 
 '''sort nilai similarity tiap dokumen'''
 def sortSimilarity(listobjects):
@@ -101,9 +117,10 @@ def extractFirstLine(filename):
 '''kamus data lengkap'''
 database = [] 
 
-'''properti dari query'''
+'''properti dari query
 vectQuery = [] 
 dictQuery = {}
+'''
 
 '''list buat nyimpen Document'''
 listOfDocuments = []

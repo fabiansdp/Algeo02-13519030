@@ -1,26 +1,20 @@
 import React from 'react';
 
-const TabelKata = () => {
+const TabelKata = ({ hasilQuery }) => {
+    console.log(hasilQuery)
     return (
         <div id="table-container">
             <table>
                 <thead>
                     <tr>
-                        <th>Term</th>
                         <th>Query</th>
-                        <th>D1</th>
+                        <th>Jumlah</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Term</td>
                         <td>Query</td>
-                        <td>D1</td>
-                    </tr>
-                    <tr>
-                        <td>Term</td>
-                        <td>Query</td>
-                        <td>D1</td>
                     </tr>
                 </tbody>
             </table>
