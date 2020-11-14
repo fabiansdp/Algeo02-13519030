@@ -1,22 +1,33 @@
 import React from 'react';
 import "../styles/table.css"
 
-const TabelKata = ({ hasilQuery, isSearch }) => {
+const TabelKata = ({ hasilQuery, isSearch, dataTabel }) => {
   return (
     <div id="table-container">
       <table>
         <thead>
           <tr>
-            <th>Query</th>
-            <th>Jumlah</th>
+            <th>Dokumen\Term</th>
+            {isSearch 
+            ? hasilQuery.map((item, index) => (
+              <th key={index}>{item}</th>
+            ))
+            : <th>TBD</th>
+            }
           </tr>
         </thead>
         <tbody>
           {isSearch 
-          ? hasilQuery.map((item, index) => (
+          ? dataTabel.map((item, index) => (
             <tr key={index} >
-              <td>{item.kata}</td>
-              <td>{item.jumlah}</td>
+              <td>{item.dokumen}</td>
+              {Object.entries(item.jumlah).map(([key,value]) => {
+                if (hasilQuery.includes(key)) {
+                  return (
+                    <td key={key}>{value}</td>
+                  )
+                }
+            })}
             </tr>
           ))
           : <tr>
