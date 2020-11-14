@@ -30,11 +30,6 @@ class Document(object):
         self.initVector = True
 
     def createSimilarity(self, vectQuery):
-        '''
-        dotopr = np.dot(self.vect, vectQuery)
-        lengthopr = np.linalg.norm(self.vect) * np.linalg.norm(vectQuery)
-        self.similarity = dotopr / lengthopr
-        '''
         dotopr = dotProduct(self.vect, vectQuery)
         lengthopr = lengthVector(self.vect) * lengthVector(vectQuery)
         self.similarity = dotopr / lengthopr
@@ -101,10 +96,6 @@ def createVecQuery(query, dictQuery, database):
     vectQuery = np.array(vectQuery)
     
     return vectQuery
-
-def resetQuery():
-    vectQuery = []
-    dictQuery = {}
 
 '''sort nilai similarity tiap dokumen'''
 def sortSimilarity(listobjects):
