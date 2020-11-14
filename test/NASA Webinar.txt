@@ -1,0 +1,72 @@
+NASA
+
+Culture:
+1. Talk to people and share ideas!
+2. Don't conform with the currently accepted method
+3. Don't limit your mind to solve the problem!
+4. Test, test, and test! Always have a backup plan
+
+What we can adopt:
+1. Working in teams
+2. Software development
+	a. Git
+	- A Version-control system for software development
+	- Powerful tools to collaborate on projects
+	- Publishing your works to community
+
+	b. Coding Style
+	- Conventions to write code for readability and consistency
+	- Practical guides for do's and don't in programming to anticipate bugs, complexity.
+	- Good examples: Google C++ Style Guides, Phyton PEP-8
+
+	c. Algorithm and Data Structure
+	- Solving problems efficiently
+	- Handling data efficiently
+	- Main material in coding interview
+
+	d. For Roboticist: ROS
+	- De-facto standard for robot programming
+	- Vibrant community: Lots of universities and companies
+	- Distributed and modular design	
+
+3. Reading paper
+	a. Motivations
+	- Looking for new ideas/techniques for new works/products
+	- Identifying future trends or directions in the field
+	- Finding strong researchers and labs to work with
+	- Knowing how to write a good research paper
+
+	b. How to read a paper
+	- Initial assessment
+	- First reading (skim)
+	- Second reading (in depth)
+
+Things to Prepare:
+1. Experiences
+	- Gain experiences and make yourself stand out
+	- Use your experiences to build your milestones and achieve higher.
+
+2. Insights about the institution
+	- Research before you start your application
+	- Think what you can do and contribute to the team!
+	- Gather information from websites, publications, previous projects, employee's stories.
+
+3. CV
+	- Adjust your CV depending on the community, countries
+	- Follow good tips and ask for feedbacks
+
+4. Portfolio
+	- Build and update portfolio regularly
+	- Where to display your portfolio: Website, Slides, LinkedIn, Git account, Blog, Instagram,...
+	- Start easy and build yours on your side time
+
+5. Recommendations
+	- Recommendations boost your application even if it's not required
+	- Display your best performance and build good relations with your coworkers and supervisors.
+
+6. Networking
+	- Talk to people
+	- Gain insights
+	- Build Network
+	- Find your figures and mentors
+	- Get recommendations
