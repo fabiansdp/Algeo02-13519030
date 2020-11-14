@@ -10,13 +10,12 @@
 * [Kontributor](#kontributor)
 
 ## Penjelasan
-### Pendahuluan
 Sebagaimana yang telah diajarkan di dalam kuliah pada materi vector di ruang Euclidean, temu-balik informasi (information retrieval) merupakan proses menemukan kembali (retrieval) informasi yang relevan terhadap kebutuhan pengguna dari suatu kumpulan informasi secara otomatis. Biasanya, sistem temu balik informasi ini digunakan untuk mencari informasi pada informasi yang tidak terstruktur, seperti laman web atau dokumen.
-### Teknik Perhitungan
-Menyusul Bro
 
 ## Screenshot
-![Example screenshot]
+![home](./doc/home.png)
+![document](./doc/document.png)
+![about](./doc/about.png)
 
 ## Teknologi
 * Frontend : ReactJs
@@ -25,40 +24,38 @@ Menyusul Bro
 Library yang digunakan:
 * nltk
 * Sastrawi
-* glob
 * pathlib
-* collections
 * numpy
-* math
 
 ## Setup
 Untuk menggunakan proyek ini, diperlukan menginstall NPM untuk frontend dan virtual environment untuk install berbagai library yang digunakan di proyek ini.
 ### Instalasi NPM
+Dari directory utama:
 ```bash
+cd src
 npm install
 ```
 ### Instalasi
+Dari directory utama:
 ```bash
-cd api
+cd src/api
 py -3 -m venv venv
 source venv/Scripts/activate
 pip install flask python-dotenv
-```
-### Library Install
-```bash
-pip install nltk Sastrawi glob pathlib collections numpy math
+pip install nltk Sastrawi pathlib numpy==1.19.3
 ```
 
 ## Menjalankan Program
 ### Frontend
 Dari main directory lakukan ini:
 ```bash
+cd src
 npm start
 ```
 ### Backend
 Dari main directory lakukan ini:
 ```bash
-cd api
+cd src/api
 source venv/Scripts/activate
 flask run
 ```
