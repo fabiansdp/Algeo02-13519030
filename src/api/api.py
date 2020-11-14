@@ -56,7 +56,6 @@ def query():
       kalimat1 = extractFirstLine(filename) #ambil kalimat pertama
       addToDatabase(outputstemming, database) #tambah kata yang ada dalam file ke database
       jmlkata = calculateJmlKata(filename) #hitung jumlah kata dokumen asli
-      #if namafileasli not in listOfDocuments:
       namafileasli = Document(namafileasli, urlfile, outputstemming, jmlkata, kalimat1) #buat Document baru
       listOfDocuments.append(namafileasli) #buat list of Documents
     
@@ -70,10 +69,8 @@ def query():
     
     ''' buat dictionary dan vector setiap Document dan hitung similarity'''
     for doc in range(len(listOfDocuments)):
-      if not(listOfDocuments[doc].initVector):
-        listOfDocuments[doc].createDict()
-        listOfDocuments[doc].createVector()
-        listOfDocuments[doc].createSimilarity(iniVectQuery)
+      listOfDocuments[doc].createDict()
+      listOfDocuments[doc].createSimilarity(iniVectQuery)
         
     '''sort dokumen berdasarkan similarity'''
     sortSimilarity(listOfDocuments)

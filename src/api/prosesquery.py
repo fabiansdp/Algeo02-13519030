@@ -11,9 +11,6 @@ class Document(object):
         self.jml_kata = jml_kata
         self.kata = kata
         self.firstline = first_line
-        self.initVector = False
-        self.initDict = False
-        self.vect = []
         self.similarity = 0
         self.dict = {}
 
@@ -22,18 +19,15 @@ class Document(object):
         for kata in database:
             self.dict[kata] = self.kata.count(kata)
             pass
-        
-    def createVector(self):
-        for jml in self.dict.values():
-            self.vect.append(jml)
-        #self.vect = np.array(self.vect)
-        self.initVector = True
 
     def createSimilarity(self, vectQuery):
-        dotopr = dotProduct(self.vect, vectQuery)
-        lengthopr = lengthVector(self.vect) * lengthVector(vectQuery)
+        vect = []
+        for jml in self.dict.values():
+            vect.append(jml)
+
+        dotopr = dotProduct(vect, vectQuery)
+        lengthopr = lengthVector(vect) * lengthVector(vectQuery)
         self.similarity = dotopr / lengthopr
-        
 
     '''getter variable'''
     def getDict(self):
@@ -50,9 +44,6 @@ class Document(object):
 
     def getFirstLine(self):
         return self.firstline
-
-    def getVector(self):
-        return self.vect
     
     def getJmlKata(self):
         return self.jml_kata
