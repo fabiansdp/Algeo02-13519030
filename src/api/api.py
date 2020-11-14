@@ -34,7 +34,20 @@ def upload_file():
           os.makedirs(UPLOAD_FOLDER)
 
       file.save(os.path.join(app.config["UPLOAD_FOLDER"],filename))
-      return jsonify(completed= True, name= filename)
+
+      path = Path(__file__).parent / './uploaded_files/'
+      for dirfile in glob.glob(os.path.join(path, '*.txt')):
+        if os.path.basename(dirfile) == filename:
+          namafileasli = Path(filename).stem #ambil nama file untuk jadi nama variable Document()
+          urlfile = os.path.basename(filename)
+          outputstemming = stemming_file(filename, path) #stemming file
+          kalimat1 = extractFirstLine(filename, path) #ambil kalimat pertama
+          addToDatabase(outputstemming, database) #tambah kata yang ada dalam file ke database
+          jmlkata = calculateJmlKata(filename, path) #hitung jumlah kata dokumen asli
+          namafileasli = Document(namafileasli, urlfile, outputstemming, jmlkata, kalimat1) #buat Document baru
+          listOfDocuments.append(namafileasli) #buat list of Documents
+
+  return jsonify(completed= True, name= filename)
 
 
 # Menerima query dan mengembalikan response berupa array of objects
@@ -46,19 +59,6 @@ def query():
     stemming_query(query) #stemming query
     from stemming import hasil_query # import hasil stemming query
 
-    listOfDocuments = []
-    '''ambil file yang telah di upload dan proses'''
-    path = Path(__file__).parent / './uploaded_files/'
-    for filename in glob.glob(os.path.join(path, '*.txt')): #iterasi tiap file yang ada dengan extension .txt
-      namafileasli = Path(filename).stem #ambil nama file untuk jadi nama variable Document()
-      urlfile = os.path.basename(filename)
-      outputstemming = stemming_file(filename) #stemming file
-      kalimat1 = extractFirstLine(filename) #ambil kalimat pertama
-      addToDatabase(outputstemming, database) #tambah kata yang ada dalam file ke database
-      jmlkata = calculateJmlKata(filename) #hitung jumlah kata dokumen asli
-      namafileasli = Document(namafileasli, urlfile, outputstemming, jmlkata, kalimat1) #buat Document baru
-      listOfDocuments.append(namafileasli) #buat list of Documents
-    
     addToDatabase(hasil_query, database) #tambah kata yang ada di query ke database
 
     ''' buat dictionary dan vector dari query '''
@@ -105,7 +105,6 @@ def query():
 
     del iniVectQuery
     del iniDictQuery
-    del listOfDocuments
     
     return jsonify(query=sorted(hasil_query), hasil=listofDict, dataTabel=listofQuery)
 

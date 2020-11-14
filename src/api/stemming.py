@@ -9,10 +9,10 @@ def hanya_huruf( input ):
    else:
       return True
 
-def stemming_file(filename):
+def stemming_file(filename, path):
     hasil_stemming = []
 
-    with open(os.path.join(os.getcwd(), filename), 'r') as f:
+    with open(os.path.join(path, filename), 'r') as f:
         fcontent = f.read()
         lines = fcontent.split()
         f.close()

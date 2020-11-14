@@ -93,9 +93,9 @@ def sortSimilarity(listobjects):
     listobjects.sort(key = lambda x: x.similarity, reverse = True)
 
 '''hitung jumlah kata dari dokumen asli'''
-def calculateJmlKata(filename):
+def calculateJmlKata(filename, path):
     jmlkata = 0
-    with open(os.path.join(os.getcwd(), filename), 'r') as f:
+    with open(os.path.join(path, filename), 'r') as f:
         input = f.read()
         lines = input.split()
         f.close()
@@ -106,9 +106,9 @@ def calculateJmlKata(filename):
     return jmlkata
 
 '''ngambil kalimat pertama dokumen'''
-def extractFirstLine(filename):
+def extractFirstLine(filename, path):
     firstline = []
-    with open(os.path.join(os.getcwd(), filename), 'r') as f:
+    with open(os.path.join(path, filename), 'r') as f:
         input = f.readline()
         detector = nltk.data.load('tokenizers/punkt/english.pickle')
         firstline = detector.tokenize(input.strip())[0]
