@@ -46,6 +46,7 @@ def upload_file():
           jmlkata = calculateJmlKata(filename, path) #hitung jumlah kata dokumen asli
           namafileasli = Document(namafileasli, urlfile, outputstemming, jmlkata, kalimat1) #buat Document baru
           listOfDocuments.append(namafileasli) #buat list of Documents
+          break
 
   return jsonify(completed= True, name= filename)
 
