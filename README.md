@@ -11,7 +11,7 @@
 
 ## Penjelasan
 Sebagaimana yang telah diajarkan di dalam kuliah pada materi vector di ruang Euclidean, temu-balik informasi (information retrieval) merupakan proses menemukan kembali (retrieval) informasi yang relevan terhadap kebutuhan pengguna dari suatu kumpulan informasi secara otomatis. Biasanya, sistem temu balik informasi ini digunakan untuk mencari informasi pada informasi yang tidak terstruktur, seperti laman web atau dokumen.
-Untuk penjelasan lebih lanjut dapat dilihat [di sini]().
+Untuk penjelasan lebih lanjut dapat dilihat [di sini](./doc/LAPORAN-APLIKASI-DOT-PRODUCT.pdf).
 
 ## Screenshot
 ![home](./doc/home.png)
