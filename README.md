@@ -60,6 +60,7 @@ cd src/api
 source venv/Scripts/activate
 flask run
 ```
+Catatan : Kedua proses di atas dilakukan di 2 terminal yang berbeda.
 ### Cara Penggunaan
 Untuk melakukan pencarian diperlukan untuk meng-upload file-file yang diinginkan terlebih dahulu melalui uploader kami. Setelah semua upload selesai, fungsi pencarian proyek kami baru bisa digunakan. Hasil pencarian nanti akan ditampilkan di halaman beserta tabel kata. Selain itu, juga dapat mengakses dokumen dengan memencet link di hasil pencarian. Setiap dokumen juga dapat disimpan melalui tombol download file kami.
 
